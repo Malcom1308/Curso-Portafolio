@@ -1,0 +1,100 @@
+---
+import HTML from "./icons/HTML.astro"
+import CSS from "./icons/CSS.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import Node from "./icons/NODE.astro"
+import Mongo from "./icons/Mongo.astro"
+import Csharp from "./icons/Csharp.astro"
+import Sql from "./icons/Sql.astro"
+import Bootstrap from "./icons/Bootstrap.astro"
+import Azure from "./icons/Azure.astro"
+
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: HTML,
+    },
+    CSS: {
+        name: "CSS",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: CSS,
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: JavaScript,
+    },
+    NODEJS: {
+        name: "Node.Js",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Node
+    },
+    MONGO: {
+        name: "MongoDB",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Mongo,
+    },
+    CSHARP: {
+        name: "C#",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Csharp,
+    },
+    SQLSERVER: {
+        name: "Sql Server",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Sql,
+    },
+    BOOTSTRAP: {
+        name: "Bootstrap",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Bootstrap
+    },
+    AZURE: {
+        name: "Microsoft Azure",
+        class: "bg-[#393939] text-colorComplementary",
+        icon: Azure
+    }
+
+}
+
+const PROJECTS = [
+    {
+        title: "Sistema Control de Activos",
+        description: "Proyecto universitario en el que se desarrolló una aplicación de control de activos. Esta contiene un CRUD completo para agregar, actualizar, eliminar y listar tanto personas como objetos de la empresa ficticia. Además, cuenta con vistas según el rol asignado y utiliza Node.js y MongoDB.",
+        github: 'https://github.com/Malcom1308/SICA',
+        image: "/projects/Proyecto1.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.NODEJS, TAGS.MONGO]
+    },
+    {
+        title: "Hotel de Mascotas",
+        description: "Proyecto universitario desarrollando una página para un hotel de mascotas, donde se utilizaron herramientas como C#, HTML, CSS, Bootstrap, SQL Server y Azure.",
+        github: "https://github.com/Malcom1308/Hotel-Mascotas",
+        image: "/projects/Proyecto2.webp",
+        tags: [TAGS.CSHARP, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT, TAGS.SQLSERVER, TAGS.AZURE]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags }, index) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-colorSecondary mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty text-colorPrincipal">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-3">
+                {tags.map((tag) => (
+                    <li class="flex items-center justify-center">
+                        <span class={`flex gap-x-2 rounded-full text-xs text-center ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-6 mr-2" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+                class="rounded"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${title}`} />
+        </article>
+    ))
+}

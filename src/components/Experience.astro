@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: 'SEPTIEMBRE 2023',
+        title: 'Página para hotel de mascotas',
+        rol: 'PO',
+        description: 
+            'Este proyecto se trabajó con una metodología SCRUM, en la cual fui asignado al puesto de Product Owner (PO). Junto a mi equipo de trabajo, ' +
+            'utilizamos herramientas como C#, HTML, CSS junto a Bootstrap, y JavaScript. Además, se emplearon bases de datos relacionales, específicamente ' +
+            'SQL Server. Para el alojamiento del proyecto, utilizamos Azure, donde hospedamos tanto nuestro proyecto final como nuestra base de datos.' 
+    },
+    {
+        date: 'FEBRERO 2023',
+        title: 'Aplicación FullStack para control de activos',
+        rol: 'Coordinador de Calidad',
+        description: 
+            'En esta aplicación se solicitó crear una página para el control de activos de una empresa. Para su desarrollo, se utilizaron herramientas tanto de ' +
+            'FrontEnd como de BackEnd. En el FrontEnd, se emplearon tecnologías como HTML, CSS y JavaScript. Por otro lado, en el BackEnd se implementaron bases ' +
+            'de datos no relacionales con MongoDB y se utilizó Node.js para la gestión del servidor.'
+    },
+]
+---
+
+<ol class="relative border-s border-colorComplementary dark:border-colorComplementary ml-3">    
+    {
+        EXPERIENCE.map(experience =>(
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...experience}/>
+        </li>
+        ))
+    }
+</ol>
