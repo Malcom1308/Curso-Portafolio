@@ -1,6 +1,7 @@
 ---
 import Logo from "./icons/Logo.astro";
-import ThemeToggle from "./ThemeToggle.astro"
+import ThemeToggle from "./ThemeToggle.astro";
+import MobileMenuButton from "./MenuButton.astro";
 
 const navItems = [
     {
@@ -21,80 +22,117 @@ const navItems = [
     {
         title: "Contacto",
         label: "contacto",
-        url: "mailto:malcomquiros3@gmail.com "
+        url: "mailto:malcomquiros3@gmail.com"
     }
-]
+];
 ---
 
-<header class="flex justify-between items-center py-10 w-full xl:w-[1120px] mx-auto">
-<Logo/>
-    <nav class="flex flex-row gap-x-10 opcity-80 text-colorPrincipal font-medium text-lg">
-        {
-            navItems.map((link) => (
-                <a
+<header class="flex justify-between items-center py-6 w-full xl:w-[1120px] mx-auto px-4 md:px-8">
+    <Logo />
+    <nav class="hidden md:flex flex-row gap-x-8 opacity-80 text-colorPrincipal font-medium text-lg">
+        {navItems.map((link) => (
+            <a
                 class="relative block px-2 py-2 transition hover:text-colorSecondary dark:text-colorSecondary"
                 aria-label={link.label}
                 href={link.url}
+            >
+                {link.title}
+            </a>
+        ))}
+        <ThemeToggle />
+    </nav>
+    <MobileMenuButton />
+</header>
+
+<!-- Menú móvil -->
+<nav id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-800 text-colorPrincipal shadow-lg z-50">
+    <ul class="flex flex-col items-center gap-y-4 py-4">
+        {navItems.map((link) => (
+            <li>
+                <a
+                    class="block w-full text-center py-2 transition hover:text-colorSecondary dark:text-colorSecondary"
+                    aria-label={link.label}
+                    href={link.url}
                 >
                     {link.title}
                 </a>
-            ))
-        }
-        <ThemeToggle/>
-    </nav>
-</header>
+            </li>
+        ))}
+        <li>
+            <ThemeToggle />
+        </li>
+    </ul>
+</nav>
 
 <script>
     document.addEventListener("astro:pages-load", () => {
-        const sections = document.querySelectorAll("section")
-        const navItems = document.querySelectorAll("header nav a")
+        const sections = document.querySelectorAll("section");
+        const navItems = document.querySelectorAll("header nav a");
 
-        const callback = (entries: any[]) => {
-            entries.forEach((entry) => {
-                if(entry.isIntersecting){
+        const callback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry: IntersectionObserverEntry) => {
+                if (entry.isIntersecting) {
                     navItems.forEach((item) => {
-                        if(item.getAttribute("aria-label") == entry.target.id){
-                            item.classList.add("text-colorSecondary")
-                        } else{
-                            item.classList.remove("text-colorSecondary")
+                        if (item.getAttribute("aria-label") == entry.target.id) {
+                            item.classList.add("text-colorSecondary");
+                        } else {
+                            item.classList.remove("text-colorSecondary");
                         }
-                    })
+                    });
                 }
-            })
-        }
+            });
+        };
 
         const observer = new IntersectionObserver(callback, {
             root: null,
             rootMargin: "0px",
             threshold: 0.3,
-        })
+        });
 
         sections.forEach((section) => {
-            observer.observe(section)
-        })
+            observer.observe(section);
+        });
 
         document.onvisibilitychange = () => {
-            if(document.visibilityState === "hidden"){
-                observer.disconnect()
-            } else{
+            if (document.visibilityState === "hidden") {
+                observer.disconnect();
+            } else {
                 sections.forEach((section) => {
-                    observer.observe(section)
-                })
+                    observer.observe(section);
+                });
             }
-        }
-    })
+        };
+    });
 </script>
 
 <style>
-    nav{
+    nav {
         animation: nav-shadow 1s linear both;
         animation-timeline: scroll();
         animation-range: 0 100px;
     }
 
-    @keyframes nav-shadown{
-        to{
-            @apply shadow-lg ring backdrop-blur dark:bg-colorComplementary bg-white/50 ring-colorComplementary
+    @keyframes nav-shadow {
+        to {
+            @apply shadow-lg ring backdrop-blur dark:bg-colorComplementary bg-white/50 ring-colorComplementary;
         }
+    }
+
+    /* Estilos para el botón del menú móvil */
+    #mobile-menu-button {
+        cursor: pointer;
+    }
+
+    #mobile-menu {
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    #mobile-menu.hidden {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    #mobile-menu:not(.hidden) {
+        max-height: 300px; /* Ajusta este valor según el número de elementos del menú */
     }
 </style>

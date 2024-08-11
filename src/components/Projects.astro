@@ -71,7 +71,7 @@ const PROJECTS = [
         description: "Proyecto universitario desarrollando una página para un hotel de mascotas, donde se utilizaron herramientas como C#, HTML, CSS, Bootstrap, SQL Server y Azure.",
         github: "https://github.com/Malcom1308/Hotel-Mascotas",
         image: "/projects/Proyecto2.webp",
-        tags: [TAGS.CSHARP, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT, TAGS.SQLSERVER]
+        tags: [TAGS.CSHARP, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT, TAGS.SQLSERVER, TAGS.AZURE]
     }
 ]
 ---
@@ -81,7 +81,7 @@ const PROJECTS = [
         <article>
             <h3 class="text-2xl font-semibold text-colorSecondary mb-2">{title}</h3>
             <p class="text-lg mb-4 text-pretty text-colorPrincipal">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-3">
+            <ul class="flex flex-wrap gap-2 mb-3">
                 {tags.map((tag) => (
                     <li class="flex items-center justify-center">
                         <span class={`flex gap-x-2 rounded-full text-xs text-center ${tag.class} py-1 px-2`}>
