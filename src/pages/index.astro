@@ -1,98 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
 import SectionContainer from '../components/SectionContainer.astro';
-import LinkedIn from '../components/icons/linkedIn.astro';
-import SocialPill from '../components/SocialPill.astro';
-import Github from '../components/icons/GitHub.astro';
-import Docu from '../components/icons/Docu.astro';
-import Mail from '../components/icons/Mail.astro';
 import Experience from '../components/Experience.astro';
 import Briefcase from '../components/icons/Briefcase.astro';
 import Code from '../components/icons/Code.astro';
 import Projects from '../components/Projects.astro';
 import PersonIcon from '../components/icons/personIcon.astro';
 import SobreMi from '../components/sobreMi.astro';
-import Whatsapp from '../components/icons/Whatsapp.astro';
 import ScrollTop from '../components/ScrollTop.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Portafolio de Malcom - Desarrollador y Programador Web en FrontEnd"
   description="Si tu página web y desarrollo FrontEnd quieres crear, a Malcom Quirós debes contratar"
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex 
-      flex-row gap-x-4 pb-6 lg:pb-10"> 
-        <span class="text-colorSecondary">Soy Malcom🧑‍💻</span>
-        <a 
-          href="https://www.linkedin.com/in/malcom-quiros-madriz-866913312/"
-          target="_blank"
-          rel="noopener" 
-          class="flex justify-center items-center ">
-          <Badge> <span class="text-colorPrincipal">Disponibilidad para laborar</span></Badge>
-        </a>
-      </h1>
-      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]"> 
-        <span class="text-colorPrincipal">Desarrollador web</span> <span class="text-colorSecondary">especializado en el área de frontend, con sólidos conocimientos 
-        en HTML, CSS, JavaScript y Bootstrap.</span> <span class="text-colorPrincipal">Además, cuento con experiencia en el uso 
-        de herramientas de diseño como Photoshop, Adobe Illustrator y Figma para el 
-        desarrollo de UI/UX, permitiendo la creación de interfaces de usuario atractivas y 
-        funcionales.</span>
-      </h2>
-
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill href="https://www.linkedin.com/in/malcom-quiros-madriz-866913312/">
-          <LinkedIn class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">LinkedIn</span>
-        </SocialPill>
-        <SocialPill href="https://github.com/Malcom1308">
-          <Github class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">GitHub</span>
-        </SocialPill>
-        <SocialPill href="mailto:malcomquiros3@gmail.com">
-          <Mail class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">malcomquiros3@gmail.com</span>
-        </SocialPill>
-        <SocialPill href="https://wa.me/+50685947069">
-          <Whatsapp class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">Chat WhatsApp</span>
-        </SocialPill>
-        <SocialPill href="public/CV.pdf" download="CV.pdf">
-          <Docu class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">CV/SPA</span>
-        </SocialPill>
-        <SocialPill href="public/CV-INGLES.pdf" download="CV-INGLES.pdf">
-          <Docu class="size-5 md:size-6"/>
-          <span class="text-colorPrincipal">CV/ENG</span>
-        </SocialPill>
-      </nav>
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+        </slot>
+      </Hero>
     </SectionContainer>
+    <div class="space-y-24">
+      <SectionContainer id="ExperienceItem">
+        <h2 class="text-2xl sm:text-3xl text-colorPrincipal flex items-center mb-6 font-semibold gap-x-3">
+          <Briefcase class="size-7"/>
+          Experiencia Estudiantil
+        </h2>
+        <Experience/>
+      </SectionContainer>
 
-    <SectionContainer id="ExperienceItem">
-      <h2 class="text-3xl text-colorPrincipal font-semibold mb-6 flex gap-x-3 items-center">
-        <Briefcase class="size-7"/>
-        Experiencia Estudiantil
-      </h2>
-      <Experience/>
-    </SectionContainer>
+      <SectionContainer id="Projects">
+        <h2 class="text-2xl sm:text-3xl text-colorPrincipal flex items-center mb-6 font-semibold gap-x-3">
+          <Code class="size-7"/>
+          Proyectos
+        </h2>
+        <Projects/>
+      </SectionContainer>
 
-    <SectionContainer id="Projects">
-      <h2 class="text-3xl text-colorPrincipal font-semibold mb-6 flex gap-x-3 items-center">
-        <Code class="size-7"/>
-        Proyectos
-      </h2>
-      <Projects/>
-    </SectionContainer>
+      <SectionContainer id="sobreMi">
+        <h2 class="flex items-center mb-6 text-2xl sm:text-3xl font-semibold gap-x-8 text-colorPrincipal">
+          <PersonIcon class="size-8"/>
+          Sobre Mí
+        </h2>
+        <SobreMi/>
+      </SectionContainer>
 
-    <SectionContainer id="sobreMi">
-      <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-colorPrincipal">
-        <PersonIcon class="size-8"/>
-        Sobre Mí
-      </h2>
-      <SobreMi/>
-    </SectionContainer>
-
-    <ScrollTop/>
+      <ScrollTop/>
+    </div>
   </main>
 </Layout>

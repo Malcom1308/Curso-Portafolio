@@ -1,14 +1,28 @@
-<footer class="bg-[#25282C] rounded-lg shadow m-4 backdrop-blur-lg w-full xl:w-[1120px] mx-auto mb-10">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-colorSecondary sm:text-center dark:text-gray-400">© 2024 <a class="hover:underline">Malcom Quiros Madriz</a>.
+---
+const currentYear = new Date().getFullYear()
+---
+
+<footer
+  class="opacity-80 m-4 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+>
+  <div
+    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+  >
+    <span class="text-sm sm:text-center text-colorSecondary dark:text-colorSecondary"
+      >© {currentYear}
+      <a class="hover:underline text-colorSecondary">Malcom Quiros Madriz</a>
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-colorPrincipal sm:mt-0">
-        <li>
-            <a href="/#sobreMi" class="hover:underline me-4 md:me-6 text-colorSecondary">Sobre Mi</a>
-        </li>
-        <li>
-            <a href="mailto:malcomquiros3@gmail.com " class="hover:underline text-colorSecondary">Contacto</a>
-        </li>
+    <ul
+      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+    >
+      <li>
+        <a href="/#SobreMi" class="hover:underline me-4 md:me-6 text-colorSecondary">Sobre mí</a>
+      </li>
+      <li>
+        <a id="contacto" href="mailto:malcomquiros3@gmail.com" class="hover:underline text-colorSecondary"
+          >Contacto</a
+        >
+      </li>
     </ul>
-    </div>
+  </div>
 </footer>

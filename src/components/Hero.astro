@@ -1,0 +1,61 @@
+---
+import Badge from './Badge.astro';
+import LinkedIn from './icons/linkedIn.astro';
+import SocialPill from './SocialPill.astro';
+import Github from './icons/GitHub.astro';
+import Docu from './icons/Docu.astro';
+import Mail from './icons/Mail.astro';
+import Whatsapp from './icons/Whatsapp.astro';
+
+---
+<div class="flex items-center gap-x-2">
+    <h1 class="text-4xl font-bold tracking-tight text-colorSecondary sm:text-5xl dark:text-colorSecondary">
+        Soy Malcom🧑‍💻
+    </h1>
+    <a
+        href="https://www.linkedin.com/in/malcom-quiros-madriz-866913312/"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+        <Badge>
+            <span class="text-colorPrincipal">Disponibilidad para laborar</span>
+        </Badge>
+    </a>
+</div>
+
+
+<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]"> 
+    <span class="text-colorPrincipal">Desarrollador web</span> <span class="text-colorSecondary">especializado en el área de frontend, con sólidos conocimientos 
+    en HTML, CSS, JavaScript y Bootstrap.</span> <span class="text-colorPrincipal">Además, cuento con experiencia en el uso 
+    de herramientas de diseño como Photoshop, Adobe Illustrator y Figma para el 
+    desarrollo de UI/UX, permitiendo la creación de interfaces de usuario atractivas y 
+    funcionales.</span>
+  </h2>
+
+  <nav class="flex gap-4 mt-8 flex-wrap">
+    <SocialPill href="https://www.linkedin.com/in/malcom-quiros-madriz-866913312/">
+      <LinkedIn class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">LinkedIn</span>
+    </SocialPill>
+    <SocialPill href="https://github.com/Malcom1308">
+      <Github class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">GitHub</span>
+    </SocialPill>
+    <SocialPill href="mailto:malcomquiros3@gmail.com">
+      <Mail class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">malcomquiros3@gmail.com</span>
+    </SocialPill>
+    <SocialPill href="https://wa.me/+50685947069">
+      <Whatsapp class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">Chat WhatsApp</span>
+    </SocialPill>
+    <SocialPill href="public/CV.pdf" download="CV.pdf">
+      <Docu class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">CV/SPA</span>
+    </SocialPill>
+    <SocialPill href="public/CV-INGLES.pdf" download="CV-INGLES.pdf">
+      <Docu class="size-5 md:size-6"/>
+      <span class="text-colorPrincipal">CV/ENG</span>
+    </SocialPill>
+  </nav>
